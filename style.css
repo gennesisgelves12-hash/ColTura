@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000 100%);
+  color: white;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* 🔹 Fondo con efecto neón dinámico */
+body::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 180deg,
+    #ff000080,
+    #ffcc0080,
+    #008cff80,
+    #ff000080
+  );
+  filter: blur(120px);
+  z-index: -1;
+  animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 🔹 Contenedor del chat */
+.chat-container {
+  width: 90%;
+  max-width: 600px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 2px solid #00ffd5;
+  border-radius: 20px;
+  box-shadow: 0 0 25px #00ffd5;
+  padding: 20px;
+  animation: glow 2s infinite alternate;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 15px #008cff; }
+  to { box-shadow: 0 0 30px #ffcc00; }
+}
+
+header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #00ffd5;
+  text-shadow: 0 0 10px #00ffd5;
+}
+
+header p {
+  color: #ffcc00;
+  text-shadow: 0 0 5px #ffcc00;
+}
+
+/* 🔹 Zona del chat */
+.chat-box {
+  background: rgba(255, 255, 255, 0.05);
+  height: 380px;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🔹 Mensajes */
+.message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 12px;
+  max-width: 85%;
+  line-height: 1.4em;
+  animation: pop 0.3s ease;
+}
+
+@keyframes pop {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.user {
+  background: linear-gradient(90deg, #ffcc00, #ff0000);
+  color: #000;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.bot {
+  background: linear-gradient(90deg, #008cff80, #00ffd580);
+  color: #fff;
+  align-self: flex-start;
+  text-align: left;
+}
+
+/* 🔹 Input */
+.input-area {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1em;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+button {
+  background: linear-gradient(90deg, #ffcc00, #ff0000, #008cff);
+  background-size: 200%;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-position: right;
+}
+
+/* 🔹 Footer */
+footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #fff;
+  text-shadow: 0 0 10px #00ffd5;
+}
